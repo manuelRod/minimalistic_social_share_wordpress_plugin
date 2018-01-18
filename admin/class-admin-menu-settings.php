@@ -13,12 +13,12 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 	 * @var array
 	 */
 	protected $social_networks = [
-		'Facebook'  => 'Facebook',
-		'Twitter'   => 'Facebook',
-		'Google+'   => 'Facebook',
-		'Pinterest' => 'Facebook',
-		'LinkedIn'  => 'Facebook',
-		'Whatsapp'  => 'Facebook',
+		'Facebook',
+		'Twitter',
+		'Google+',
+		'Pinterest',
+		'LinkedIn',
+		'Whatsapp',
 	];
 
 	/**
@@ -26,7 +26,19 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 	 *
 	 * @var array
 	 */
-	protected $supported_sizes = [ 'Small' => 'Small', 'Medium' => 'Medium', 'Large' => 'Large' ];
+	protected $supported_sizes = [ 'Small', 'Medium', 'Large' ];
+
+	/**
+	 * Where to place the sharing buttons
+	 *
+	 * @var array
+	 */
+	protected $supported_places = [
+		'Below the post title',
+		'Floating on the left area',
+		'After the post content',
+		'Inside the featured image'
+	];
 
 	/**
 	 * Public Hooks
@@ -46,6 +58,9 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		$this->add_section( 'post_types', 'Post Types', 'Choice where to displayed:' );
 		$this->add_section( 'social_networks', 'Social Networks', 'Choice where to displayed:' );
 		$this->add_section( 'sizes', 'Sizes', 'Size to be displayed:' );
+		// sec
+		// sec
+		$this->add_section( 'where', 'Places', 'Places to be displayed:' );
 	}
 
 	protected function add_section( $option_name, $title, $text ) {
@@ -85,6 +100,9 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		] );
 	}
 
+	/**
+	 * Social network callback
+	 */
 	public function add_social_networks_callback() {
 		$options           = get_option( 'social-share-settings' );
 		$chosen_post_types = isset( $options['networks'] ) ? $options['networks'] : [ ];
@@ -96,6 +114,9 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		] );
 	}
 
+	/**
+	 * Sizes callback
+	 */
 	public function add_sizes_callback() {
 		$options           = get_option( 'social-share-settings' );
 		$chosen_post_types = isset( $options['sizes'] ) ? $options['sizes'] : [ ];
@@ -106,6 +127,20 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 			'option_name'     => 'sizes',
 			'type'            => 'radio'
 
+		] );
+	}
+
+	/**
+	 * Where to place it callback
+	 */
+	public function add_where_callback() {
+		$options           = get_option( 'social-share-settings' );
+		$chosen_post_types = isset( $options['where'] ) ? $options['where'] : [ ];
+
+		$this->render( 'admin-menu-checkbox-callback.php', [
+			'chosen_types'    => $chosen_post_types,
+			'available_types' => $this->supported_places,
+			'option_name'     => 'where'
 		] );
 	}
 

@@ -1,12 +1,12 @@
 <table>
 	<tr>
-		<?php foreach ( $available_types as $key => $cpt ): ?>
-			<?php $checked = ( is_array( $chosen_types ) ) && ( $chosen_types[ $key ] ) ? 'checked' : ''; ?>
+		<?php foreach ( $available_types as $cpt ): ?>
+			<?php $checked = ( $chosen_types == $cpt) ? 'checked' : ''; ?>
 			<td>
 				<input type="radio"
-				       id="<?= $key ?>"
+				       id="<?= $cpt ?>"
 				       name="social-share-settings[<?= $option_name ?>]"
-				       value="<?= $key ?>" <?= $checked ?>><?= $key ?>
+				       value="<?= $cpt ?>" <?= $checked ?>><?= $cpt ?>
 			</td>
 		<?php endforeach; ?>
 	</tr>
