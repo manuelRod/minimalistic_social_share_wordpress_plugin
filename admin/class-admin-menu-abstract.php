@@ -12,7 +12,7 @@ abstract class Admin_Menu_Abstract {
 
 	/**
 	 * @param $view_file
-	 * @param null $variables
+	 * @param null|array $variables
 	 */
 	function render( $view_file, $variables = null ) {
 		/**
@@ -22,8 +22,9 @@ abstract class Admin_Menu_Abstract {
 			extract( $variables );
 		}
 		ob_start();
-		require_once plugin_dir_path( __FILE__ ) . "partials/$view_file";
+		require plugin_dir_path( __FILE__ ) . "partials/$view_file";
 		$output = ob_get_clean();
+		ob_flush();
 		echo $output;
 	}
 
