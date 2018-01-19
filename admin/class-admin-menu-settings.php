@@ -59,8 +59,7 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		$this->add_section( 'social_networks', 'Social Networks', 'Choice where to displayed:' );
 		$this->add_section( 'sizes', 'Sizes', 'Size to be displayed:' );
 		$this->add_section( 'colour', 'Colour Pickers', 'Colours to be displayed:' );
-
-		// sec
+		$this->add_section( 'sort', 'Sort', 'Order to be displayed:' );
 		$this->add_section( 'where', 'Places', 'Places to be displayed:' );
 	}
 
@@ -158,6 +157,20 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 			'chosen_types'    => $chosen_post_types,
 			'available_types' => $this->supported_places,
 			'option_name'     => 'where'
+		] );
+	}
+
+	/**
+	 * Sorting icons callback
+	 */
+	public function add_sort_callback() {
+		$options           = get_option( 'social-share-settings' );
+		$chosen_post_types = isset( $options['sort'] ) ? $options['sort'] : [ ];
+
+		$this->render( 'admin-menu-sort-callback.php', [
+			'chosen_types'    => $chosen_post_types,
+			'available_types' => $this->social_networks,
+			'option_name'     => 'sort'
 		] );
 	}
 
