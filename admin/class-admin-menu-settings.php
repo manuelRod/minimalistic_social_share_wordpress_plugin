@@ -58,7 +58,8 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		$this->add_section( 'post_types', 'Post Types', 'Choice where to displayed:' );
 		$this->add_section( 'social_networks', 'Social Networks', 'Choice where to displayed:' );
 		$this->add_section( 'sizes', 'Sizes', 'Size to be displayed:' );
-		// sec
+		$this->add_section( 'colour', 'Colour Pickers', 'Colours to be displayed:' );
+
 		// sec
 		$this->add_section( 'where', 'Places', 'Places to be displayed:' );
 	}
@@ -125,6 +126,22 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 			'chosen_types'    => $chosen_post_types,
 			'available_types' => $this->supported_sizes,
 			'option_name'     => 'sizes',
+			'type'            => 'radio'
+
+		] );
+	}
+
+	/**
+	 * Colours callback
+	 */
+	public function add_colour_callback() {
+		$options           = get_option( 'social-share-settings' );
+		$chosen_post_types = isset( $options['colour'] ) ? $options['colour'] : [ ];
+
+		$this->render( 'admin-menu-colour-callback.php', [
+			'chosen_types'    => $chosen_post_types,
+			'available_types' => $this->social_networks,
+			'option_name'     => 'colour',
 			'type'            => 'radio'
 
 		] );
