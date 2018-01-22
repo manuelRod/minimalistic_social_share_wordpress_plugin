@@ -1,5 +1,15 @@
+<?php
+/**
+ * Settings area view
+ *
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/admin/partials
+ */
+
+?>
+
 <div class="wrap">
-	<h1>Breaking News Settings</h1>
+	<h1><?php esc_html_e( 'Social Share Settings', 'social-share' ); ?></h1>
 </div>
 <div class="clear"></div>
 

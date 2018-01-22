@@ -1,19 +1,32 @@
-jQuery(function () {
-    jQuery("#sortable").sortable({
-        revert: true,
-        update: function (event, ui) {
-            var order = jQuery('#sortable').sortable('toArray').toString();
-            var data = {
-                'action': 'save_sn_order',
-                'order': order,
-                'nonce': ajax.nonce
-            };
-            console.log(ajax);
-            console.log(data);
-            jQuery.post(ajax.ajaxurl, data, function (response) {
-                alert("Response: " + response);
-            });
-        }
-    });
-    jQuery("ul, li").disableSelection();
-});
+/**
+ * All dashboard facing js.
+ *
+ * @package Social_Share\Admin\js
+ */
+
+jQuery(
+	function () {
+		'use strict';
+		jQuery( "#sortable" ).sortable(
+			{
+				revert: true,
+				update: function (event, ui) {
+					var order = jQuery( '#sortable' ).sortable( 'toArray' ).toString();
+					var data  = {
+						'action': 'save_sn_order',
+						'order': order,
+						'nonce': ajax.nonce
+					};
+					jQuery.post(
+						ajax.ajaxurl, data, function (response) {
+							if (response != 1) {
+								alert( 'something is wrong saving the order, try it later.' )
+							}
+						}
+					);
+				}
+			}
+		);
+		jQuery( "ul, li" ).disableSelection();
+	}
+);
