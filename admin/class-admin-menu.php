@@ -20,7 +20,6 @@ class Admin_Menu extends Admin_Menu_Abstract {
 	public function hook_me() {
 		add_action( 'admin_menu', [ $this, 'add_menu_dashboard' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts_styles' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
 	}
 

@@ -2,8 +2,7 @@
 /**
  * Checkbox callback
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/admin/partials
+ * @package Social_Share\Admin\Partials
  */
 
 ?>
