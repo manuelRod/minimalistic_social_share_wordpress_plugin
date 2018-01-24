@@ -8,5 +8,4 @@
 
 ?>
 
-
-<a href="https://twitter.com/share?url=<?php echo $current_url; ?>" target="_blank" class="fa <?php echo $size_class; ?> fa-whatsapp"></a>
+<a href="whatsapp://send?text=<?php echo esc_url( $current_url ); ?>” data-action=”share/whatsapp/share" target="_blank" class="fa <?php echo esc_html( $size_class ); ?> fa-whatsapp"></a>

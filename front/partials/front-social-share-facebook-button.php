@@ -7,4 +7,4 @@
 
 ?>
 
-<a href="http://www.facebook.com/sharer.php?u=<?php echo esc_html( $current_url ); ?>" target="_blank" class="fa <?php echo esc_html( $size_class ); ?> fa-facebook"></a>
+<a href="http://www.facebook.com/sharer.php?u=<?php echo esc_url( $current_url ); ?>" target="_blank" class="fa <?php echo esc_html( $size_class ); ?> fa-facebook"></a>

@@ -2,12 +2,19 @@
 /**
  * Social Share buttons.
  *
+ * @var \Social_Share\Front\Front_Settings_Helper $settings
+ * @var bool $floating
  * @package    Social_Share\Front\Partials
  */
 
 ?>
 
 <?php
+
+
+require_once plugin_dir_path( __DIR__ ) . 'vendors/Mobile-Detect/Mobile_Detect.php';
+$detect = new Mobile_Detect();
+
 $current_url = rawurlencode( get_permalink() );
 // If it is medium, leave class by default (there is a social network called Medium.
 $size_class = ( $settings->get_size() === 'Medium' ) ? '' : 'fa-' . strtolower( $settings->get_size() );
@@ -31,6 +38,10 @@ if ( $floating ) {
 
 <div id="share-buttons">
 	<?php foreach ( $settings->get_available_networks() as $sn_name => $colour ) : ?>
+		<?php // If Whatsapp is available but page is not loaded on mobile, skip it. ?>
+		<?php if ( 'Whatsapp' === $sn_name && ! $detect->isMobile() ) : ?>
+			<?php continue; ?>
+		<?php endif; ?>
 		<?php // If floating, we need to wrap it up. ?>
 		<?php if ( $floating ) : ?>
 			<div style="top: <?php echo esc_html( $top ); ?>px" class="fa-float float-<?php echo esc_html( strtolower( $sn_name ) ); ?>">
