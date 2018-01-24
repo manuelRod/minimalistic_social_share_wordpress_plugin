@@ -12,7 +12,7 @@
 <?php
 
 
-require_once plugin_dir_path( __DIR__ ) . 'vendors/Mobile-Detect/Mobile_Detect.php';
+require_once plugin_dir_path( __DIR__ ) . 'vendors' . DIRECTORY_SEPARATOR . 'Mobile-Detect' . DIRECTORY_SEPARATOR . 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 
 $current_url = rawurlencode( get_permalink() );

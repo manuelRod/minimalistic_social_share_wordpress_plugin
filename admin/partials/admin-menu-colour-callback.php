@@ -11,7 +11,7 @@
 	<tr>
 		<?php foreach ( $available_types as $cpt => $colour ) : ?>
 			<?php
-			$colour_value = ( $chosen_types[ $cpt ] ) ? $chosen_types[ $cpt ] : $colour;
+			$colour_value = ( isset( $chosen_types[ $cpt ] ) ) ? $chosen_types[ $cpt ] : $colour;
 			?>
 			<td>
 				<input type="color"

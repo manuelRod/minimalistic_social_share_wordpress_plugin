@@ -57,11 +57,3 @@ use Social_Share\Front\Front_Extension;
 $front = new Front_Extension();
 $front->hook_to_front();
 
-use Social_Share\Front\Front_Helper;
-
-add_action('init', 'a');
-function a() {
-	//Front_Helper::get_instance();
-
-}
-

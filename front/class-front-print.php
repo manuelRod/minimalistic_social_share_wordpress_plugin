@@ -58,7 +58,7 @@ class Front_Print {
 	 *
 	 * @return string
 	 */
-	private function get_buttons( Front_Settings_Helper $settings, $floating ) {
+	private static function get_buttons( Front_Settings_Helper $settings, $floating = false) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'partials/front-social-share-buttons.php';
 		$output = ob_get_clean();
