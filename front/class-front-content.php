@@ -25,33 +25,33 @@ class Front_Content {
 	/**
 	 * Hook before content (after title).
 	 *
-	 * @param string $content
+	 * @param string $content Post Content.
 	 *
 	 * @return string
 	 */
 	public function the_title_hook( $content ) {
 		$front_settings = Front_Settings_Helper::get_instance();
-		if (!$front_settings->is_bellow_title()) {
+		if ( ! $front_settings->is_bellow_title() ) {
 			return $content;
 		}
 
 		if ( ! $this->is_post_type_eligible() ) {
 			return $content;
 		}
-		$content = Front_Print::print_bellow_title($content, $front_settings);
+		$content = Front_Print::print_bellow_title( $content, $front_settings );
 		return $content;
 	}
 
 	/**
 	 * Hook into the post content.
 	 *
-	 * @param string $content Post content
+	 * @param string $content Post content.
 	 *
 	 * @return string
 	 */
 	public function the_content_hook( $content ) {
 		$front_settings = Front_Settings_Helper::get_instance();
-		if (!$front_settings->is_after_content()) {
+		if ( ! $front_settings->is_after_content() ) {
 			return $content;
 		}
 
@@ -59,9 +59,9 @@ class Front_Content {
 			return $content;
 		}
 		remove_filter( 'the_content', 'wpautop' );
-		$content = Front_Print::print_after_content($content, $front_settings);
-		if ($front_settings->is_floating_left()) {
-			$content = Front_Print::floating_left_area($content, $front_settings);
+		$content = Front_Print::print_after_content( $content, $front_settings );
+		if ( $front_settings->is_floating_left() ) {
+			$content = Front_Print::floating_left_area( $content, $front_settings );
 		}
 
 		return $content;

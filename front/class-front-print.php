@@ -14,27 +14,57 @@ namespace Social_Share\Front;
  */
 class Front_Print {
 
-	static public function print_bellow_title($title, Front_Settings_Helper $settings) {
-		return self::get_buttons($settings) . $title;
+	/**
+	 * Prints buttons before content.
+	 *
+	 * @param string                $content Post Content.
+	 * @param Front_Settings_Helper $settings Settings Helper.
+	 *
+	 * @return string
+	 */
+	public static function print_bellow_title( $content, Front_Settings_Helper $settings ) {
+		return self::get_buttons( $settings ) . $content;
 	}
 
-	static public function print_after_content($content, Front_Settings_Helper $settings) {
-		return $content . self::get_buttons($settings);
+	/**
+	 * Prints buttons after content.
+	 *
+	 * @param string                $content Post Content.
+	 * @param Front_Settings_Helper $settings Settings Helper.
+	 *
+	 * @return string
+	 */
+	public static function print_after_content( $content, Front_Settings_Helper $settings ) {
+		return $content . self::get_buttons( $settings );
 	}
 
-	static public function floating_left_area($content, Front_Settings_Helper $settings) {
-		return $content . self::get_buttons($settings, true);
+	/**
+	 * Prints buttons floating left.
+	 *
+	 * @param string                $content Post Content.
+	 * @param Front_Settings_Helper $settings Settings Helper.
+	 *
+	 * @return string
+	 */
+	public static function floating_left_area( $content, Front_Settings_Helper $settings ) {
+		return $content . self::get_buttons( $settings, true );
 	}
 
-	private function get_buttons(Front_Settings_Helper $settings, $floating) {
+	/**
+	 * Gets buttons html.
+	 *
+	 * @param Front_Settings_Helper $settings Settings Helper.
+	 * @param bool                  $floating Floating position Flag.
+	 *
+	 * @return string
+	 */
+	private function get_buttons( Front_Settings_Helper $settings, $floating ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'partials/front-social-share-buttons.php';
 		$output = ob_get_clean();
 		ob_flush();
 		return $output;
 	}
-
-
 
 }
 
