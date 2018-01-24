@@ -18,28 +18,7 @@ class Front_Content {
 	 * This will define all hooks for the content
 	 */
 	public function hook_me() {
-		add_filter( 'the_content', array( $this, 'the_title_hook' ), 1, 1 );
-		add_filter( 'the_content', array( $this, 'the_content_hook' ), 2, 1 );
-	}
-
-	/**
-	 * Hook before content (after title).
-	 *
-	 * @param string $content Post Content.
-	 *
-	 * @return string
-	 */
-	public function the_title_hook( $content ) {
-		$front_settings = Front_Settings_Helper::get_instance();
-		if ( ! $front_settings->is_bellow_title() ) {
-			return $content;
-		}
-
-		if ( ! $this->is_post_type_eligible() ) {
-			return $content;
-		}
-		$content = Front_Print::print_bellow_title( $content, $front_settings );
-		return $content;
+		add_filter( 'the_content', array( $this, 'the_content_hook' ), 1, 1 );
 	}
 
 	/**
@@ -51,15 +30,17 @@ class Front_Content {
 	 */
 	public function the_content_hook( $content ) {
 		$front_settings = Front_Settings_Helper::get_instance();
-		if ( ! $front_settings->is_after_content() ) {
-			return $content;
-		}
-
 		if ( ! $this->is_post_type_eligible() ) {
 			return $content;
 		}
+
 		remove_filter( 'the_content', 'wpautop' );
-		$content = Front_Print::print_after_content( $content, $front_settings );
+		if ( $front_settings->is_bellow_title() ) {
+			$content = Front_Print::print_bellow_title( $content, $front_settings );
+		}
+		if ( $front_settings->is_after_content() ) {
+			$content = Front_Print::print_after_content( $content, $front_settings );
+		}
 		if ( $front_settings->is_floating_left() ) {
 			$content = Front_Print::floating_left_area( $content, $front_settings );
 		}
