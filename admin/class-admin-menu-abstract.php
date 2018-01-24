@@ -18,17 +18,17 @@ abstract class Admin_Menu_Abstract {
 	const SOCIAL_SHARE_ORDER    = 'social-share-order';
 
 	/**
-	 * Social Networks to be displayed
+	 * Social Networks to be displayed (and its default colours)
 	 *
 	 * @var array
 	 */
 	protected $social_networks = [
-		'Facebook',
-		'Twitter',
-		'Google+',
-		'Pinterest',
-		'LinkedIn',
-		'Whatsapp',
+		'Facebook'  => '#3B5998',
+		'Twitter'   => '#55ACEE',
+		'Google+'   => '#dd4b39',
+		'Pinterest' => '#cb2027',
+		'LinkedIn'  => '#007bb5',
+		'Whatsapp'  => '#25d366',
 	];
 
 	/**
