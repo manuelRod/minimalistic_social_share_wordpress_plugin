@@ -156,10 +156,20 @@ class Front_Settings_Helper {
 		return false;
 	}
 
+	/**
+	 * Returns Social network with its colours.
+	 *
+	 * @return array
+	 */
 	public function get_available_networks() {
 		return $this->settings['networks'];
 	}
 
+	/**
+	 * Returns Size chosen on Settings.
+	 *
+	 * @return string
+	 */
 	public function get_size() {
 		return $this->settings['sizes'];
 	}
