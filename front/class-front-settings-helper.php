@@ -60,9 +60,7 @@ class Front_Settings_Helper {
 		$settings_beautified['where']      = $settings['where'];
 		foreach ( $order as $sn ) {
 			if ( isset( $settings['networks'][ $sn ] ) ) {
-				$settings_beautified[ $sn ]['sizes']  = $settings['sizes'];
-				$settings_beautified[ $sn ]['where']  = $settings['where'];
-				$settings_beautified[ $sn ]['colour'] = $settings['colour'][ $sn ];
+				$settings_beautified['networks'][ $sn ] = $settings['colour'][ $sn ];
 			}
 		}
 
@@ -156,6 +154,14 @@ class Front_Settings_Helper {
 		}
 
 		return false;
+	}
+
+	public function get_available_networks() {
+		return $this->settings['networks'];
+	}
+
+	public function get_size() {
+		return $this->settings['sizes'];
 	}
 
 }

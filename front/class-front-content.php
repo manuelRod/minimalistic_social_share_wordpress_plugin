@@ -23,6 +23,11 @@ class Front_Content {
 	}
 
 	public function the_title_hook( $title ) {
+		$front_settings = Front_Settings_Helper::get_instance();
+		if (!$front_settings->is_bellow_title()) {
+			return $title;
+		}
+
 		if ( ! $this->is_post_type_eligible() ) {
 			return $title;
 		}
@@ -31,14 +36,16 @@ class Front_Content {
 	}
 
 	public function the_content_hook( $content ) {
-		if ( ! $this->is_post_type_eligible() ) {
-			return $content;
-		}
-
 		$front_settings = Front_Settings_Helper::get_instance();
 		if (!$front_settings->is_after_content()) {
 			return $content;
 		}
+
+		if ( ! $this->is_post_type_eligible() ) {
+			return $content;
+		}
+		remove_filter( 'the_content', 'wpautop' );
+		$content = Front_Print::print_after_content($content, $front_settings);
 
 
 

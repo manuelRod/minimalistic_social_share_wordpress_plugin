@@ -50,3 +50,18 @@ use Social_Share\Admin\Admin_Extension;
 $admin = new Admin_Extension();
 $admin->hook_to_admin();
 
+
+use Social_Share\Front\Front_Extension;
+
+// init frontend hooks.
+$front = new Front_Extension();
+$front->hook_to_front();
+
+use Social_Share\Front\Front_Helper;
+
+add_action('init', 'a');
+function a() {
+	//Front_Helper::get_instance();
+
+}
+
