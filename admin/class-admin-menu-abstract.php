@@ -23,6 +23,15 @@ abstract class Admin_Menu_Abstract {
 	 * @var array
 	 */
 	protected $social_networks = [
+		'Facebook',
+		'Twitter' ,
+		'Google+' ,
+		'Pinterest',
+		'LinkedIn',
+		'Whatsapp',
+	];
+
+	protected $social_networks_default_colours = [
 		'Facebook'  => '#3B5998',
 		'Twitter'   => '#55ACEE',
 		'Google+'   => '#dd4b39',

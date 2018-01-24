@@ -9,7 +9,7 @@
 
 <table>
 	<tr>
-		<?php foreach ( $available_types as $cpt => $colour ) : ?>
+		<?php foreach ( $default_colours as $cpt => $colour ) : ?>
 			<?php
 			$colour_value = ( isset( $chosen_types[ $cpt ] ) ) ? $chosen_types[ $cpt ] : $colour;
 			?>

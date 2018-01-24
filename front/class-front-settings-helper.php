@@ -51,7 +51,7 @@ class Front_Settings_Helper {
 	 */
 	private function sort_settings_output( $settings, $order ) {
 		$settings_beautified = array();
-		if ( empty( $settings ) ) {
+		if ( empty( $settings['networks'] ) || empty( $settings['where'] ) || empty( $settings['sizes'] ) || empty( $settings['post_types'] ) ) {
 			return $settings_beautified;
 		}
 

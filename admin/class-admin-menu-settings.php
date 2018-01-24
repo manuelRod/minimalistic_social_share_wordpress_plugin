@@ -34,6 +34,12 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		$options = get_option( self::SOCIAL_SHARE_SETTINGS );
 		$order   = get_option( self::SOCIAL_SHARE_ORDER );
 
+		if ( ! $order ) {
+			// If Order is not set yet, assign order by default.
+			$order = $this->social_networks;
+			update_option( self::SOCIAL_SHARE_ORDER, $order );
+		}
+
 		$this->add_section( 'sort', __( 'Social Networks', 'social-share' ), __( 'Choose order to be displayed:', 'social-share' ), $options, $order );
 		$this->add_section( 'post_types', 'Post Types', 'Choice where to displayed:', $options, $order );
 		$this->add_section( 'sizes', 'Sizes', 'Size to be displayed:', $options, $order );
@@ -94,18 +100,6 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 		);
 	}
 
-
-	/**public function add_social_networks_callback($args) {
-	 * $options           = get_option( 'social-share-settings' );
-	 * $chosen_post_types = isset( $options['networks'] ) ? $options['networks'] : [ ];
-	 *
-	 * $this->render( 'admin-menu-checkbox-callback.php', [
-	 * 'chosen_types'    => $chosen_post_types,
-	 * 'available_types' => $this->social_networks,
-	 * 'option_name'     => 'networks'
-	 * ] );
-	 * }**/
-
 	/**
 	 * Sizes callback
 	 *
@@ -139,6 +133,7 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 			'admin-menu-colour-callback.php', [
 				'chosen_types'    => $chosen_post_types,
 				'available_types' => $this->social_networks,
+				'default_colours' => $this->social_networks_default_colours,
 				'option_name'     => 'colour',
 				'type'            => 'radio',
 
