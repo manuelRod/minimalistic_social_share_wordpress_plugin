@@ -18,8 +18,8 @@ class Front_Content {
 	 * This will define all hooks for the content
 	 */
 	public function hook_me() {
-		add_filter( 'the_title', array( $this, 'the_title_hook' ), 1, 1 );
-		add_filter( 'the_content', array( $this, 'the_content_hook' ), 1, 1 );
+		add_filter( 'the_content', array( $this, 'the_title_hook' ), 1, 1 );
+		add_filter( 'the_content', array( $this, 'the_content_hook' ), 2, 1 );
 	}
 
 	public function the_title_hook( $title ) {
@@ -31,6 +31,7 @@ class Front_Content {
 		if ( ! $this->is_post_type_eligible() ) {
 			return $title;
 		}
+		$title = Front_Print::print_bellow_title($title, $front_settings);
 		return $title;
 
 	}
@@ -46,11 +47,9 @@ class Front_Content {
 		}
 		remove_filter( 'the_content', 'wpautop' );
 		$content = Front_Print::print_after_content($content, $front_settings);
-
-
+		$content = Front_Print::floating_left_area($content, $front_settings);
 
 		return $content;
-
 	}
 
 	/**

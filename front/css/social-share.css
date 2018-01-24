@@ -14,6 +14,7 @@ a.fa {
 
 .fa-small {
     padding: 5px;
+    height: 30px;
 }
 
 .fa-medium {
@@ -48,14 +49,8 @@ a.fa {
     color: white;
 }
 
-
 .fa-pinterest {
     background: #cb2027;
-    color: white;
-}
-
-.fa-soundcloud {
-    background: #ff5500;
     color: white;
 }
 
@@ -64,6 +59,18 @@ a.fa {
     color: white;
 }
 
+.fa-float {
+    padding: 4px;
+    width: 190px;
+    position: fixed;
+    left: 0px;
+    z-index: 1000;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
 
 
 

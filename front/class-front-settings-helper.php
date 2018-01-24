@@ -174,5 +174,7 @@ class Front_Settings_Helper {
 		return $this->settings['sizes'];
 	}
 
+
+
 }
 
