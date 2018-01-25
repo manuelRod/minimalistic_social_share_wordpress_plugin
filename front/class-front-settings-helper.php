@@ -49,7 +49,7 @@ class Front_Settings_Helper {
 	 *
 	 * @return array
 	 */
-	private function sort_settings_output( $settings, $order ) {
+	public function sort_settings_output( $settings, $order ) {
 		$settings_beautified = array();
 		if ( empty( $settings['networks'] ) || empty( $settings['where'] ) || empty( $settings['sizes'] ) || empty( $settings['post_types'] ) ) {
 			return $settings_beautified;
@@ -76,7 +76,6 @@ class Front_Settings_Helper {
 		if ( ! self::$instance instanceof self ) {
 			self::$instance = new self();
 		}
-
 		return self::$instance;
 	}
 
@@ -162,7 +161,7 @@ class Front_Settings_Helper {
 	 * @return array
 	 */
 	public function get_available_networks() {
-		return $this->settings['networks'];
+		return ( isset( $this->settings['networks'] ) ) ? $this->settings['networks'] : [];
 	}
 
 	/**
@@ -171,10 +170,17 @@ class Front_Settings_Helper {
 	 * @return string
 	 */
 	public function get_size() {
-		return $this->settings['sizes'];
+		return ( isset( $this->settings['sizes'] ) ) ? $this->settings['sizes'] : [];
 	}
 
-
+	/**
+	 * Returns if there is a place chosen on Settings.
+	 *
+	 * @return array
+	 */
+	public function is_placed_somewhere() {
+		return ( isset( $this->settings['where'] ) ) ? $this->settings['where'] : [];
+	}
 
 }
 

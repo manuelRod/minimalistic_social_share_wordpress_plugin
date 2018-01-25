@@ -18,7 +18,7 @@ class Front_Content {
 	 * This will define all hooks for the content
 	 */
 	public function hook_me() {
-		add_filter( 'the_content', array( $this, 'the_content_hook' ), 1, 1 );
+		add_filter( 'the_content', [ $this, 'the_content_hook' ], 99, 1 );
 	}
 
 	/**
@@ -29,12 +29,15 @@ class Front_Content {
 	 * @return string
 	 */
 	public function the_content_hook( $content ) {
-		$front_settings = Front_Settings_Helper::get_instance();
 		if ( ! $this->is_post_type_eligible() ) {
 			return $content;
 		}
 
-		remove_filter( 'the_content', 'wpautop' );
+		$front_settings = Front_Settings_Helper::get_instance();
+		if (!$front_settings->is_placed_somewhere()) {
+			return $content;
+		}
+
 		if ( $front_settings->is_bellow_title() ) {
 			$content = Front_Print::print_bellow_title( $content, $front_settings );
 		}

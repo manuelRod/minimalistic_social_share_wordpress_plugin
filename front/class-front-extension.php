@@ -20,7 +20,7 @@ class Front_Extension {
 	public function hook_to_front() {
 		( new Front_Content() )->hook_me();
 		( new Front() )->hook_me();
-
+		( new Front_Shortcode() )->hook_me();
 	}
 
 
