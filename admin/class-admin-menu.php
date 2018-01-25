@@ -57,7 +57,7 @@ class Admin_Menu extends Admin_Menu_Abstract {
 				]
 			);
 			wp_enqueue_script( 'social-share' );
-			wp_enqueue_style( 'dashboardStyle', plugin_dir_url( __FILE__ ) . 'css/dashboard.css', [], 1.0 );
+			wp_enqueue_style( 'dashboardStyle', plugin_dir_url( __FILE__ ) . 'css/dashboard.css' );
 		}
 	}
 }

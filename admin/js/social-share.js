@@ -28,5 +28,13 @@ jQuery(
 			}
 		);
 		jQuery( "ul, li" ).disableSelection();
+
+		jQuery( '.default_colour' ).on(
+			'click', function() {
+				var id             = this.id;
+				var default_colour = jQuery( this ).attr( 'data-defaultcolour' );
+				document.getElementsByName( 'social-share-settings[colour][' + id + ']' )[0].value = default_colour;
+			}
+		);
 	}
 );
