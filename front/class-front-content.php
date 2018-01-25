@@ -19,6 +19,7 @@ class Front_Content {
 	 */
 	public function hook_me() {
 		add_filter( 'the_content', [ $this, 'the_content_hook' ], 99, 1 );
+		add_filter( 'post_thumbnail_html', [ $this, 'post_thumbnail_html' ], 99, 1 );
 	}
 
 	/**
@@ -34,7 +35,7 @@ class Front_Content {
 		}
 
 		$front_settings = Front_Settings_Helper::get_instance();
-		if (!$front_settings->is_placed_somewhere()) {
+		if ( ! $front_settings->is_placed_somewhere() ) {
 			return $content;
 		}
 
@@ -49,6 +50,25 @@ class Front_Content {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Hook into thumbnail HTML.
+	 *
+	 * @param string $html thumbnail html.
+	 *
+	 * @return string
+	 */
+	public function post_thumbnail_html( $html ) {
+		if ( ! $this->is_post_type_eligible() ) {
+			return $html;
+		}
+		$front_settings = Front_Settings_Helper::get_instance();
+		if ( $front_settings->is_inside_image() ) {
+			return Front_Print::floating_inside_image( $html, $front_settings );
+
+		}
+		return $html;
 	}
 
 	/**

@@ -36,20 +36,29 @@ if ( $floating ) {
 }
 ?>
 
-<div id="share-buttons">
-	<?php foreach ( $settings->get_available_networks() as $sn_name => $colour ) : ?>
-		<?php // If Whatsapp is available but page is not loaded on mobile, skip it. ?>
-		<?php if ( 'Whatsapp' === $sn_name && ! $detect->isMobile() ) : ?>
-			<?php continue; ?>
-		<?php endif; ?>
-		<?php // If floating, we need to wrap it up. ?>
-		<?php if ( $floating ) : ?>
-			<div style="top: <?php echo esc_html( $top ); ?>px" class="fa-float float-<?php echo esc_html( strtolower( $sn_name ) ); ?>">
+<?php if ( $image ) : ?>
+	<div class="share-inside">
+<?php else : ?>
+	<div class="share-buttons">
+<?php endif; ?>
+		<?php foreach ( $settings->get_available_networks() as $sn_name => $colour ) : ?>
+			<?php // If Whatsapp is available but page is not loaded on mobile, skip it. ?>
+			<?php if ( 'Whatsapp' === $sn_name && ! $detect->isMobile() ) : ?>
+				<?php continue; ?>
+			<?php endif; ?>
+
+			<?php // If floating, we need to wrap it up. ?>
+			<?php if ( $floating ) : ?>
+				<div style="top: <?php echo esc_html( $top ); ?>px" class="fa-float float-<?php echo esc_html( strtolower( $sn_name ) ); ?>">
+					<?php require plugin_dir_path( __FILE__ ) . 'front-social-share-' . strtolower( $sn_name ) . '-button.php'; ?>
+				</div>
+				<?php $top = $top + $top_increase; ?>
+			<?php elseif ( $image ) : ?>
+				<div class="fa-inside inside-<?php echo esc_html( strtolower( $sn_name ) ); ?>">
+					<?php require plugin_dir_path( __FILE__ ) . 'front-social-share-' . strtolower( $sn_name ) . '-button.php'; ?>
+				</div>
+			<?php else : ?>
 				<?php require plugin_dir_path( __FILE__ ) . 'front-social-share-' . strtolower( $sn_name ) . '-button.php'; ?>
-			</div>
-			<?php $top = $top + $top_increase; ?>
-		<?php else : ?>
-			<?php require plugin_dir_path( __FILE__ ) . 'front-social-share-' . strtolower( $sn_name ) . '-button.php'; ?>
-		<?php endif; ?>
-	<?php endforeach; ?>
-</div>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</div>

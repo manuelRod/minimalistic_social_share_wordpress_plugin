@@ -24,8 +24,8 @@ abstract class Admin_Menu_Abstract {
 	 */
 	protected $social_networks = [
 		'Facebook',
-		'Twitter' ,
-		'Google+' ,
+		'Twitter',
+		'Google+',
 		'Pinterest',
 		'LinkedIn',
 		'Whatsapp',
