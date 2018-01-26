@@ -1,0 +1,22 @@
+{
+  "name": "social-share",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "description": "Social Share grunt routines",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-cssmin": "*"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.toptal.com:Manuel-Rodriguez/manuel-rodriguez.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

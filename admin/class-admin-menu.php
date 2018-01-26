@@ -48,7 +48,7 @@ class Admin_Menu extends Admin_Menu_Abstract {
 		if ( 'social-share' !== ( $page && $page ) ) {
 
 			wp_enqueue_script( 'jQueryUI', plugin_dir_url( __FILE__ ) . 'js/jquery-ui.js', [ 'jquery' ], 1.0, true );
-			wp_register_script( 'social-share', plugin_dir_url( __FILE__ ) . 'js//social-share.js', [ 'jquery' ] );
+			wp_register_script( 'social-share', plugin_dir_url( __FILE__ ) . 'js//social-share.min.js', [ 'jquery' ] );
 			wp_localize_script(
 				'social-share', 'ajax',
 				[
@@ -57,7 +57,7 @@ class Admin_Menu extends Admin_Menu_Abstract {
 				]
 			);
 			wp_enqueue_script( 'social-share' );
-			wp_enqueue_style( 'dashboardStyle', plugin_dir_url( __FILE__ ) . 'css/dashboard.css' );
+			wp_enqueue_style( 'dashboardStyle', plugin_dir_url( __FILE__ ) . 'css/dashboard.min.css' );
 		}
 	}
 }

@@ -27,7 +27,7 @@ class Front {
 	 */
 	public function enqueue_scripts_styles() {
 		wp_enqueue_style( 'font-awesome', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css' );
-		wp_enqueue_style( 'social-share', plugin_dir_url( __FILE__ ) . 'css/social-share.css' );
+		wp_enqueue_style( 'social-share', plugin_dir_url( __FILE__ ) . 'css/social-share.min.css' );
 	}
 
 }
