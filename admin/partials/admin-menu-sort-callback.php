@@ -9,7 +9,7 @@
 
 <ul id="sortable">
 	<?php foreach ( $sorted_types as $cpt ) : ?>
-	<li class="ui-state-default" id="<?php echo esc_html( $cpt ); ?>">
+	<li class="sortable-list ui-state-default" id="<?php echo esc_html( $cpt ); ?>">
 	<?php $checked = ( is_array( $selected_types ) ) && ( isset( $selected_types[ $cpt ] ) ) ? 'checked' : ''; ?>
 	<?php $value   = ( $checked ) ? $cpt : 'notChecked'; ?>
 			<input type="checkbox"

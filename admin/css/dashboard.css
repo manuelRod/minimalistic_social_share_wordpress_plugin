@@ -2,3 +2,9 @@
 	cursor: pointer;
 	font-weight: bold;
 }
+
+.sortable-list {
+	border: none;
+	background: none;
+	color: black;
+}
