@@ -7,4 +7,4 @@
 
 ?>
 
-<a style="background: <?php echo esc_html( $colour ); ?>" href="http://www.facebook.com/sharer.php?u=<?php echo esc_url( $current_url ); ?>" target="_blank" class="fa <?php echo esc_html( $size_class ); ?> fa-facebook"></a>
+<a style="background: <?php echo esc_html( $colour ); ?>" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url( $current_url ); ?>" target="_blank" class="fa <?php echo esc_html( $size_class ); ?> fa-facebook"></a>

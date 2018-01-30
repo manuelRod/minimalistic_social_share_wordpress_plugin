@@ -1,11 +1,16 @@
 <?php
 /**
- * Twitter Share button.
+ * Pinterest Share button.
  *
  * @package    Social_Share\Front\Partials
  */
 
 ?>
 
-<a style="background: <?php echo esc_html( $colour ); ?>" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());" class="fa <?php echo esc_html( $size_class ); ?> fa-pinterest"></a>
+<?php
+$thumb_to_pin = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+$thumb_to_pin = ( $thumb_to_pin ) ? $thumb_to_pin[0] : '';
+
+?>
+<a style="background: <?php echo esc_html( $colour ); ?>" href="http://pinterest.com/pin/create/button/?url=<?php echo esc_url( $current_url ); ?>&media=<?php echo esc_url( $thumb_to_pin ); ?>" class="fa <?php echo esc_html( $size_class ); ?> fa-pinterest"></a>
 

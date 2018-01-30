@@ -15,7 +15,7 @@
 require_once plugin_dir_path( __DIR__ ) . 'vendors' . DIRECTORY_SEPARATOR . 'Mobile-Detect' . DIRECTORY_SEPARATOR . 'Mobile_Detect.php';
 $detect = new Mobile_Detect();
 
-$current_url = rawurlencode( get_permalink() );
+$current_url = get_permalink();
 // If it is medium, leave class by default (there is a social network called Medium.
 $size_class = ( $settings->get_size() === 'Medium' ) ? '' : 'fa-' . strtolower( $settings->get_size() );
 // If floating, we need to do some calculations to place top dynamically depending of number of social networks and size.
