@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class Admin_Menu_Ajax
+ *
+ * @package Social_Share\Admin
+ */
 
 namespace Social_Share\Admin;
 

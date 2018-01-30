@@ -31,6 +31,11 @@ abstract class Admin_Menu_Abstract {
 		'Whatsapp',
 	];
 
+	/**
+	 * Social Networks with its defuault colours.
+	 *
+	 * @var array
+	 */
 	protected $social_networks_default_colours = [
 		'Facebook'  => '#3B5998',
 		'Twitter'   => '#55ACEE',

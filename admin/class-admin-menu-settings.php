@@ -62,7 +62,7 @@ class Admin_Menu_Settings extends Admin_Menu_Abstract {
 			$option_name,
 			$title,
 			function () use ( $text ) {
-				echo $text;
+				echo esc_html( $text );
 			},
 			'social-share-settings'
 		);
