@@ -4,7 +4,7 @@
 }
 
 .sortable-list {
-	border: none;
-	background: none;
-	color: black;
+	border: none !important;
+	background: none !important;
+	color: black !important;
 }
