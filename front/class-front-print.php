@@ -65,8 +65,9 @@ class Front_Print {
 	/**
 	 * Gets buttons html.
 	 *
-	 * @param Front_Settings_Helper $settings Settings Helper.
-	 * @param bool                  $floating Floating position Flag.
+	 * @param Front_Settings_Helper $settings Settings helper.
+	 * @param bool|false            $floating Floating Flag.
+	 * @param bool|false            $image    Image Flag.
 	 *
 	 * @return string
 	 */
