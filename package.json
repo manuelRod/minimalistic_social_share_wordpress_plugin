@@ -15,8 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.toptal.com:Manuel-Rodriguez/manuel-rodriguez.git"
+    "url": "git+ssh://git@github.com/manuelRod/minimalistic_social_share_wordpress_plugin.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuelRod/minimalistic_social_share_wordpress_plugin/issues"
+  },
+  "homepage": "https://github.com/manuelRod/minimalistic_social_share_wordpress_plugin#readme"
 }

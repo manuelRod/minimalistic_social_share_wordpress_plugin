@@ -1,15 +1,15 @@
 <?php
 /**
- * Toptal Project Interview
+ * Minimalistic Social Share Plugin
  *
- * @link              http://www.toptal.com/
+ * @link              http://www.cosmonauta.es/
  * @since             1.0.0
- * @package           Social_Share
+ * @package           Minimalistic_social_share_plugin
  *
  * @wordpress-plugin
- * Plugin Name: Social Share
- * Plugin URI: http://www.toptal.com/
- * Description: Toptal Project Interview
+ * Plugin Name: Minimalistic Social Share Plugin
+ * Plugin URI: http://www.cosmonauta.es/
+ * Description: Super Lightweight Social Share Plugin
  * Version: 1.0
  * Author: Manuel Rodriguez Rosado
  * Author URI: http://www.cosmonauta.es/
