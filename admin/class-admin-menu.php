@@ -46,9 +46,7 @@ class Admin_Menu extends Admin_Menu_Abstract {
 		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_SPECIAL_CHARS );
 
 		if ( 'social-share' !== ( $page && $page ) ) {
-
-			wp_enqueue_script( 'jQueryUI', plugin_dir_url( __FILE__ ) . 'js/jquery-ui.js', [ 'jquery' ], 1.0, true );
-			wp_register_script( 'social-share', plugin_dir_url( __FILE__ ) . 'js//social-share.min.js', [ 'jquery' ] );
+			wp_register_script( 'social-share', plugin_dir_url( __FILE__ ) . 'js/social-share.min.js', [ 'jquery', 'jquery-ui-sortable' ] );
 			wp_localize_script(
 				'social-share', 'ajax',
 				[

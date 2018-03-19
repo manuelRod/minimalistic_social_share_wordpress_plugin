@@ -12,7 +12,7 @@ Lightweight plugin to integrate Social Share Icons into your Wordpress project.
 
 ## Extras
  - Activation / Deactivation of Social Networks
- - Sort of Social Networks Icons
+ - Drag and Drop Sorting of Social Networks Icons
  - 3 sizes to choose (Small / Medium / Large)
  - Colour Picker for Icons
  - Choose where to Display them (Posts / Pages / CPTs)

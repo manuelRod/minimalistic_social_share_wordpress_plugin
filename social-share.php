@@ -8,7 +8,6 @@
  *
  * @wordpress-plugin
  * Plugin Name: Minimalistic Social Share Plugin
- * Plugin URI: http://www.cosmonauta.es/
  * Description: Super Lightweight Social Share Plugin
  * Version: 1.0
  * Author: Manuel Rodriguez Rosado
@@ -22,13 +21,13 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Register autoloader.
-spl_autoload_register( 'autoloader' );
+spl_autoload_register( 'mss_autoloader' );
 /**
  * Autoloader
  *
  * @param string $class_name Class Name string.
  */
-function autoloader( $class_name ) {
+function mss_autoloader( $class_name ) {
 	if ( ( strpos( $class_name, 'Social_Share\\' ) ) !== false ) {
 		$classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR;
 		$class_file  = str_replace( '\\', DIRECTORY_SEPARATOR, $class_name ) . '.php';
