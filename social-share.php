@@ -3,7 +3,7 @@
  * Minimalistic Social Share Plugin
  *
  * @link              http://www.cosmonauta.es/
- * @since             1.0.0
+ * @since             1.2
  * @package           Minimalistic_social_share_plugin
  *
  * @wordpress-plugin

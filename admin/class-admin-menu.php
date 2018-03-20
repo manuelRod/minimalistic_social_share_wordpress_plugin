@@ -58,5 +58,14 @@ class Admin_Menu extends Admin_Menu_Abstract {
 			wp_enqueue_style( 'dashboardStyle', plugin_dir_url( __FILE__ ) . 'css/dashboard.min.css' );
 		}
 	}
+
+
+	function add_custom_script(){
+		wp_enqueue_script(
+			'jquery-custom-script',
+			plugin_dir_url( __FILE__ ).'js/jquery-custom-script.js'
+		);
+	}
+
 }
 

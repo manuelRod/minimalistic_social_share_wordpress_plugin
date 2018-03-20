@@ -68,6 +68,7 @@ https://github.com/manuelRod/minimalistic_social_share_wordpress_plugin
 
 == Changelog ==
 1.0 First public version
+1.2 Published to Wordpress.org
 
 == Upgrade Notice ==
 = 1.0 =
